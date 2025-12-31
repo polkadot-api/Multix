@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.14.1",
     "@fontsource/jost": "^5.2.6",
     "@mui/base": "^5.0.0-dev.20240529-082515-213b5e33ab",
+    "@mui/icons-material": "^7.3.6",
     "@mui/material": "^6.5.0",
     "@mui/styled-engine": "^6.5.0",
     "@paraspell/sdk": "^8.16.0",

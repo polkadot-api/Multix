@@ -5,12 +5,14 @@ import Container from '@mui/material/Container'
 import { Outlet } from 'react-router'
 import MobileMenu from '../Drawer/Drawer'
 import { styled } from '@mui/material/styles'
+import { ClosedBanner } from '../ClosedBanner'
 
 function MainLayout() {
   const [open, setOpen] = React.useState(false)
 
   return (
     <BoxStyled>
+      <ClosedBanner />
       <Header handleDrawerOpen={() => setOpen(true)} />
       <Container
         fixed
