@@ -1,6 +1,6 @@
 {
   "overwrite": true,
-  "schema": "https://multix.squids.live/multix-arrow@v7/api/graphql",
+  "schema": "https://polkadot.graphql.multix.live/graphql",
   "documents": "src/**/*.graphql",
   "generates": {
     "src/gql/": {

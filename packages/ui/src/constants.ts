@@ -14,14 +14,14 @@ import { localSVG } from './logos/localSVG'
 import { chainsPolkadotCircleSVG } from './logos/polkadot-circleSVG'
 // import { phalaSVG } from './logos/phalaSVG'
 import { nodesAssetHubSVG } from './logos/assetHubSVG'
-import { hydrationSVG } from './logos/hydrationSVG'
-import { nodesWestendColourSVG } from './logos/westend_colourSVG'
-import { chainsAcalaSVG } from './logos/acalaSVG'
-import { nodesBifrostSVG } from './logos/bifrostSVG'
+// import { hydrationSVG } from './logos/hydrationSVG'
+// import { nodesWestendColourSVG } from './logos/westend_colourSVG'
+// import { chainsAcalaSVG } from './logos/acalaSVG'
+// import { nodesBifrostSVG } from './logos/bifrostSVG'
 import paseoSVG from './logos/paseoSVG.svg'
-import dancelightSVG from './logos/dancelightSVG.svg'
-import tanssiSVG from './logos/tanssiSVG.svg'
-import { polimecSVG } from './logos/polimecSVG'
+// import dancelightSVG from './logos/dancelightSVG.svg'
+// import tanssiSVG from './logos/tanssiSVG.svg'
+// import { polimecSVG } from './logos/polimecSVG'
 import usdc from './logos/usdc.svg'
 import usdt from './logos/usdt.svg'
 import { DESCRIPTORS, PplDescriptorKeys } from './types'
@@ -51,30 +51,23 @@ export interface NetworkInfo {
   genesisHash?: string
 }
 
-export const HTTP_GRAPHQL_URL = `https://multix.squids.live/multix-arrow@v7/api/graphql`
-
+export const HTTP_GRAPHQL_URL = `https://polkadot.graphql.multix.live/graphql`
 export const PAYMENT_INFO_ACCOUNT = '5CXQZrh1MSgnGGCdJu3tqvRfCv7t5iQXGGV9UKotrbfhkavs'
 
 const polkadotPplChains = [
-  'wss://people-polkadot.dotters.network',
-  'wss://people-polkadot.ibp.network',
-  'wss://rpc-people-polkadot.luckyfriday.io'
+  'wss://sys.ibp.network/people-polkadot',
+  'wss://people-polkadot.dotters.network'
+  //'wss://rpc-people-polkadot.luckyfriday.io'
   // 'wss://polkadot-people-rpc.polkadot.io'
   // 'wss://people-polkadot.public.curie.radiumblock.co/ws'
 ]
 const kusamaPplChains = [
-  'wss://people-kusama-rpc.dwellir.com',
-  'wss://people-kusama.ibp.network',
-  'wss://people-kusama.dotters.network',
-  'wss://rpc-people-kusama.luckyfriday.io',
-  'wss://kusama-people-rpc.polkadot.io'
+  'wss://sys.ibp.network/people-kusama',
+  'wss://people-kusama.dotters.network'
+  //'wss://people-kusama-rpc.dwellir.com',
+  //'wss://rpc-people-kusama.luckyfriday.io',
+  //'wss://kusama-people-rpc.polkadot.io'
   // 'wss://ksm-rpc.stakeworld.io/people'
-]
-const westendPplChains = [
-  'wss://people-westend-rpc.dwellir.com',
-  'wss://sys.ibp.network/people-westend',
-  'wss://people-westend.dotters.network',
-  'wss://westend-people-rpc.polkadot.io'
 ]
 
 export const networkList: Record<string, NetworkInfo> = {
@@ -83,11 +76,11 @@ export const networkList: Record<string, NetworkInfo> = {
     explorerNetworkName: 'polkadot',
     pplChainRpcUrls: polkadotPplChains,
     rpcUrls: [
-      'wss://rpc-polkadot.luckyfriday.io',
       'wss://rpc.ibp.network/polkadot',
       'wss://polkadot.dotters.network',
-      'wss://polkadot-rpc.dwellir.com'
-      // 'wss://polkadot.api.onfinality.io/public-ws'
+      'wss://rpc-polkadot.luckyfriday.io',
+      'wss://polkadot-rpc.n.dwellir.com',
+      'wss://polkadot.api.onfinality.io/public-ws'
       // 'wss://polkadot-rpc.publicnode.com',
       // 'wss://polkadot-public-rpc.blockops.network/ws',
       // 'wss://polkadot.public.curie.radiumblock.co/ws',
@@ -95,7 +88,7 @@ export const networkList: Record<string, NetworkInfo> = {
       // 'wss://dot-rpc.stakeworld.io',
       // 'wss://polkadot.rpc.subquery.network/public/ws'
     ],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
+    httpGraphqlUrl: 'https://polkadot.graphql.multix.live/graphql',
     networkLogo: chainsPolkadotCircleSVG,
     descriptor: 'dot',
     pplChainDescriptor: 'dotPpl',
@@ -106,18 +99,18 @@ export const networkList: Record<string, NetworkInfo> = {
     explorerNetworkName: 'kusama',
     pplChainRpcUrls: kusamaPplChains,
     rpcUrls: [
-      'wss://kusama-rpc.dwellir.com',
       'wss://rpc.ibp.network/kusama',
       'wss://kusama.dotters.network',
-      'wss://rpc-kusama.luckyfriday.io'
+      'wss://rpc-kusama.luckyfriday.io',
+      'wss://kusama-rpc.n.dwellir.com',
+      'wss://kusama.api.onfinality.io/public-ws'
       // 'wss://kusama-rpc.publicnode.com' //nope
       // 'wss://kusama-rpc-tn.dwellir.com', //nope
-      // 'wss://kusama.api.onfinality.io/public-ws',
       // 'wss://rockx-ksm.w3node.com/polka-public-ksm/ws',
       // 'wss://ksm-rpc.stakeworld.io',
       // 'wss://kusama.rpc.subquery.network/public/ws'
     ],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
+    httpGraphqlUrl: 'https://kusama.graphql.multix.live/graphql',
     networkLogo: chainsKusamaSVG,
     descriptor: 'ksm',
     pplChainDescriptor: 'ksmPpl',
@@ -128,15 +121,15 @@ export const networkList: Record<string, NetworkInfo> = {
     explorerNetworkName: 'assethub-polkadot',
     rpcUrls: [
       'wss://sys.ibp.network/asset-hub-polkadot',
-      'wss://asset-hub-polkadot-rpc.dwellir.com',
       'wss://asset-hub-polkadot.dotters.network',
       'wss://rpc-asset-hub-polkadot.luckyfriday.io',
-      'wss://statemint.api.onfinality.io/public-ws',
-      'wss://polkadot-asset-hub-rpc.polkadot.io',
-      'wss://dot-rpc.stakeworld.io/assethub'
+      'wss://asset-hub-polkadot-rpc.n.dwellir.com',
+      'wss://statemint.api.onfinality.io/public-ws'
+      //'wss://polkadot-asset-hub-rpc.polkadot.io',
+      //'wss://dot-rpc.stakeworld.io/assethub'
     ],
     pplChainRpcUrls: polkadotPplChains,
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
+    httpGraphqlUrl: 'https://asset-hub-polkadot.graphql.multix.live/graphql',
     nativeAssetLogo: chainsPolkadotCircleSVG,
     networkLogo: nodesAssetHubSVG,
     descriptor: 'dotAssetHub',
@@ -147,17 +140,18 @@ export const networkList: Record<string, NetworkInfo> = {
     chainId: 'asset-hub-kusama',
     explorerNetworkName: 'assethub-kusama',
     rpcUrls: [
-      'wss://asset-hub-kusama-rpc.dwellir.com',
-      'wss://statemine-rpc-tn.dwellir.com',
       'wss://sys.ibp.network/statemine',
       'wss://asset-hub-kusama.dotters.network',
       'wss://rpc-asset-hub-kusama.luckyfriday.io',
-      'wss://kusama-asset-hub-rpc.polkadot.io'
+      'wss://asset-hub-kusama-rpc.n.dwellir.com',
+      'wss://assethub-kusama.api.onfinality.io/public-ws'
+      // 'wss://statemine-rpc-tn.dwellir.com',
+      // 'wss://kusama-asset-hub-rpc.polkadot.io'
       // 'wss://statemine.public.curie.radiumblock.co/ws',
       // 'wss://ksm-rpc.stakeworld.io/assethub'
     ],
     pplChainRpcUrls: kusamaPplChains,
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
+    httpGraphqlUrl: 'https://asset-hub-kusama.graphql.multix.live/graphql',
     nativeAssetLogo: chainsKusamaSVG,
     networkLogo: nodesAssetHubSVG,
     descriptor: 'ksmAssetHub',
@@ -196,19 +190,19 @@ export const networkList: Record<string, NetworkInfo> = {
   //   descriptor: coretimeKsm,
   //   genesisHash: '0x638cd2b9af4b3bb54b8c1f0d22711fc89924ca93300f0caf25a580432b29d050'
   // },
-  acala: {
-    chainId: 'acala',
-    explorerNetworkName: 'acala',
-    rpcUrls: [
-      'wss://acala-rpc-3.aca-api.network/ws',
-      'wss://acala-rpc.dwellir.com',
-      'wss://acala-polkadot.api.onfinality.io/public-ws'
-    ],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
-    networkLogo: chainsAcalaSVG,
-    descriptor: 'acala',
-    genesisHash: '0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c'
-  },
+  // acala: {
+  //   chainId: 'acala',
+  //   explorerNetworkName: 'acala',
+  //   rpcUrls: [
+  //     'wss://acala-rpc-3.aca-api.network/ws',
+  //     'wss://acala-rpc.dwellir.com',
+  //     'wss://acala-polkadot.api.onfinality.io/public-ws'
+  //   ],
+  //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
+  //   networkLogo: chainsAcalaSVG,
+  //   descriptor: 'acala',
+  //   genesisHash: '0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c'
+  // },
   // astar: {
   //   chainId: 'astar',
   //   explorerNetworkName: 'astar',
@@ -222,37 +216,37 @@ export const networkList: Record<string, NetworkInfo> = {
   //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
   //   logo: nodesAstarPNG
   // },
-  'bifrost-dot': {
-    chainId: 'bifrost-polkadot',
-    explorerNetworkName: 'bifrost',
-    rpcUrls: [
-      'wss://bifrost-polkadot-rpc.dwellir.com',
-      'wss://bifrost-polkadot.ibp.network',
-      'wss://bifrost-polkadot.dotters.network',
-      'wss://hk.p.bifrost-rpc.liebi.com/ws',
-      'wss://eu.bifrost-polkadot-rpc.liebi.com/ws',
-      'wss://bifrost.public.curie.radiumblock.co/ws'
-    ],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
-    networkLogo: nodesBifrostSVG,
-    descriptor: 'bifrostDot',
-    genesisHash: '0x262e1b2ad728475fd6fe88e62d34c200abe6fd693931ddad144059b1eb884e5b'
-  },
-  hydration: {
-    chainId: 'hydradx',
-    explorerNetworkName: 'hydration',
-    rpcUrls: [
-      'wss://rpc.helikon.io/hydradx',
-      'wss://hydradx-rpc.dwellir.com',
-      'wss://rpc.hydradx.cloud',
-      'wss://hydradx.paras.ibp.network',
-      'wss://hydration.dotters.network'
-    ],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
-    networkLogo: hydrationSVG,
-    descriptor: 'hydration',
-    genesisHash: '0xafdc188f45c71dacbaa0b62e16a91f726c7b8699a9748cdf715459de6b7f366d'
-  },
+  // 'bifrost-dot': {
+  //   chainId: 'bifrost-polkadot',
+  //   explorerNetworkName: 'bifrost',
+  //   rpcUrls: [
+  //     'wss://bifrost-polkadot-rpc.dwellir.com',
+  //     'wss://bifrost-polkadot.ibp.network',
+  //     'wss://bifrost-polkadot.dotters.network',
+  //     'wss://hk.p.bifrost-rpc.liebi.com/ws',
+  //     'wss://eu.bifrost-polkadot-rpc.liebi.com/ws',
+  //     'wss://bifrost.public.curie.radiumblock.co/ws'
+  //   ],
+  //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
+  //   networkLogo: nodesBifrostSVG,
+  //   descriptor: 'bifrostDot',
+  //   genesisHash: '0x262e1b2ad728475fd6fe88e62d34c200abe6fd693931ddad144059b1eb884e5b'
+  // },
+  // hydration: {
+  //   chainId: 'hydradx',
+  //   explorerNetworkName: 'hydration',
+  //   rpcUrls: [
+  //     'wss://rpc.helikon.io/hydradx',
+  //     'wss://hydradx-rpc.dwellir.com',
+  //     'wss://rpc.hydradx.cloud',
+  //     'wss://hydradx.paras.ibp.network',
+  //     'wss://hydration.dotters.network'
+  //   ],
+  //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
+  //   networkLogo: hydrationSVG,
+  //   descriptor: 'hydration',
+  //   genesisHash: '0xafdc188f45c71dacbaa0b62e16a91f726c7b8699a9748cdf715459de6b7f366d'
+  // },
   // interlay: {
   //   chainId: 'interlay',
   //   explorerNetworkName: 'interlay',
@@ -310,25 +304,25 @@ export const networkList: Record<string, NetworkInfo> = {
   //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
   //   logo: nodesKhalaSVG
   // },
-  westend: {
-    chainId: 'westend',
-    explorerNetworkName: 'westend',
-    pplChainRpcUrls: westendPplChains,
-    rpcUrls: [
-      'wss://westend-rpc.polkadot.io',
-      'wss://westend-rpc.dwellir.com',
-      'wss://westend-rpc-tn.dwellir.com',
-      'wss://rpc.ibp.network/westend',
-      'wss://westend.dotters.network',
-      'wss://westend.api.onfinality.io/public-ws',
-      'wss://westend.public.curie.radiumblock.co/ws'
-    ],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
-    networkLogo: nodesWestendColourSVG,
-    descriptor: 'westend',
-    pplChainDescriptor: 'wesPpl',
-    genesisHash: '0xe143f23803ac50e8f6f8e62695d1ce9e4e1d68aa36c1cd2cfd15340213f3423e'
-  },
+  // westend: {
+  //   chainId: 'westend',
+  //   explorerNetworkName: 'westend',
+  //   pplChainRpcUrls: westendPplChains,
+  //   rpcUrls: [
+  //     'wss://westend-rpc.polkadot.io',
+  //     'wss://westend-rpc.dwellir.com',
+  //     'wss://westend-rpc-tn.dwellir.com',
+  //     'wss://rpc.ibp.network/westend',
+  //     'wss://westend.dotters.network',
+  //     'wss://westend.api.onfinality.io/public-ws',
+  //     'wss://westend.public.curie.radiumblock.co/ws'
+  //   ],
+  //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
+  //   networkLogo: nodesWestendColourSVG,
+  //   descriptor: 'westend',
+  //   pplChainDescriptor: 'wesPpl',
+  //   genesisHash: '0xe143f23803ac50e8f6f8e62695d1ce9e4e1d68aa36c1cd2cfd15340213f3423e'
+  // },
   // 'asset-hub-westend': {
   //   chainId: 'asset-hub-westend',
   //   explorerNetworkName: 'assethub-westend',
@@ -350,13 +344,13 @@ export const networkList: Record<string, NetworkInfo> = {
     chainId: 'paseo',
     explorerNetworkName: 'paseo',
     rpcUrls: [
-      'wss://pas-rpc.stakeworld.io',
-      'wss://paseo-rpc.dwellir.com',
-      'wss://paseo.rpc.amforc.com',
       'wss://rpc.ibp.network/paseo',
-      'wss://paseo.dotters.network'
+      'wss://paseo.dotters.network',
+      'wss://paseo-rpc.n.dwellir.com'
+      //'wss://pas-rpc.stakeworld.io',
+      //'wss://paseo.rpc.amforc.com',
     ],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
+    httpGraphqlUrl: 'https://paseo.graphql.multix.live/graphql',
     pplChainRpcUrls: ['wss://people-paseo.rpc.amforc.com', 'wss://people-paseo.dotters.network'],
     networkLogo: paseoSVG,
     descriptor: 'paseo',
@@ -398,37 +392,37 @@ export const networkList: Record<string, NetworkInfo> = {
   //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
   //   logo: nodesKiltPNG
   // },
-  polimec: {
-    chainId: 'polimec',
-    explorerNetworkName: 'polimec',
-    rpcUrls: [
-      'wss://polimec.rpc.amforc.com',
-      'wss://rpc.helikon.io/polimec',
-      'wss://polimec.ibp.network'
-    ],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
-    networkLogo: polimecSVG,
-    descriptor: 'polimec',
-    genesisHash: '0x7eb9354488318e7549c722669dcbdcdc526f1fef1420e7944667212f3601fdbd'
-  },
-  tanssi: {
-    chainId: 'tanssi',
-    explorerNetworkName: 'tanssi',
-    rpcUrls: ['wss://services.tanssi-mainnet.network/tanssi'],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
-    networkLogo: tanssiSVG,
-    descriptor: 'tanssi',
-    genesisHash: '0xdd6d086f75ec041b66e20c4186d327b23c8af244c534a2418de6574e8c041a60'
-  },
-  dancelight: {
-    chainId: 'dancelight',
-    explorerNetworkName: 'dancelight',
-    rpcUrls: ['wss://services.tanssi-testnet.network/dancelight'],
-    httpGraphqlUrl: HTTP_GRAPHQL_URL,
-    networkLogo: dancelightSVG,
-    descriptor: 'dancelight',
-    genesisHash: '0x983a1a72503d6cc3636776747ec627172b51272bf45e50a355348facb67a820a'
-  },
+  // polimec: {
+  //   chainId: 'polimec',
+  //   explorerNetworkName: 'polimec',
+  //   rpcUrls: [
+  //     'wss://polimec.rpc.amforc.com',
+  //     'wss://rpc.helikon.io/polimec',
+  //     'wss://polimec.ibp.network'
+  //   ],
+  //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
+  //   networkLogo: polimecSVG,
+  //   descriptor: 'polimec',
+  //   genesisHash: '0x7eb9354488318e7549c722669dcbdcdc526f1fef1420e7944667212f3601fdbd'
+  // },
+  // tanssi: {
+  //   chainId: 'tanssi',
+  //   explorerNetworkName: 'tanssi',
+  //   rpcUrls: ['wss://services.tanssi-mainnet.network/tanssi'],
+  //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
+  //   networkLogo: tanssiSVG,
+  //   descriptor: 'tanssi',
+  //   genesisHash: '0xdd6d086f75ec041b66e20c4186d327b23c8af244c534a2418de6574e8c041a60'
+  // },
+  // dancelight: {
+  //   chainId: 'dancelight',
+  //   explorerNetworkName: 'dancelight',
+  //   rpcUrls: ['wss://services.tanssi-testnet.network/dancelight'],
+  //   httpGraphqlUrl: HTTP_GRAPHQL_URL,
+  //   networkLogo: dancelightSVG,
+  //   descriptor: 'dancelight',
+  //   genesisHash: '0x983a1a72503d6cc3636776747ec627172b51272bf45e50a355348facb67a820a'
+  // },
   local: {
     chainId: import.meta.env.VITE_CHAIN_ID,
     explorerNetworkName: import.meta.env.VITE_NETWORK_NAME as 'kusama',
@@ -443,18 +437,18 @@ export const networkList: Record<string, NetworkInfo> = {
 
 export const polkadotNetworksAndParachains: Partial<keyof typeof networkList>[] = [
   'polkadot',
-  'asset-hub-polkadot',
+  'asset-hub-polkadot'
   // 'coretime-polkadot',
-  'acala',
+  // 'acala',
   // 'astar',
-  'bifrost-dot',
-  'hydration',
+  // 'bifrost-dot',
+  // 'hydration',
   // 'interlay',
   // 'kilt',
   // 'moonbeam',
   // 'pendulum',
   // 'phala',
-  'polimec'
+  // 'polimec'
   // 'watr'
 ]
 export const kusamaNetworksAndParachains: Partial<keyof typeof networkList>[] = [
@@ -465,14 +459,16 @@ export const kusamaNetworksAndParachains: Partial<keyof typeof networkList>[] = 
   // 'khala'
   // 'moonriver'
 ]
-export const soloChains: Partial<keyof typeof networkList>[] = ['tanssi']
+export const soloChains: Partial<keyof typeof networkList>[] = [
+  // 'tanssi',
+]
 export const testChains: Partial<keyof typeof networkList>[] = [
-  'paseo',
+  'paseo'
   // 'rhala testnet',
-  'westend',
+  // 'westend',
   // 'asset-hub-westend',
-  'local',
-  'dancelight'
+  // 'local',
+  // 'dancelight'
 ]
 
 export type SupportedNetworks = keyof typeof networkList
